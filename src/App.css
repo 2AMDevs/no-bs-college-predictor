@@ -1,9 +1,8 @@
 html {
-  background-color: var(--dark);
+  background-color: var(--gray-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   color: white;
 }
