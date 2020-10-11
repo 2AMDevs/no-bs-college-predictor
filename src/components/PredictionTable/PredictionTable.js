@@ -2,8 +2,7 @@ import React from 'react';
 
 import './PredictionTable.css';
 
-function PredictionTable ({ colleges }) {
-
+const PredictionTable = ({ colleges }) => {
   return (
     <div className="college-table">
       <table>
