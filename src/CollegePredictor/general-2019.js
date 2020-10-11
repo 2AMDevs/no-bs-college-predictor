@@ -1,5 +1,4 @@
 export const collegeData = [
-
         {
             "institute": "Indian Institute  of Technology Bhubaneswar",
             "program": "Civil Engineering (4 Years, Bachelor of Technology)",
