@@ -3,7 +3,6 @@ import React from 'react';
 import './PredictionTable.css';
 
 function PredictionTable ({ colleges }) {
-  console.log(colleges);
 
   return (
     <div className="college-table">
