@@ -4,7 +4,7 @@ import PredictionTable from '../PredictionTable/PredictionTable'
 import { collegeData } from './general-2019.js';
 import './CollegePredictor.css';
 
-function CollegePredictor () {
+const CollegePredictor = () => {
   const [colleges, setColleges] = useState([]);
 
   const filterColleges = (e) => {
