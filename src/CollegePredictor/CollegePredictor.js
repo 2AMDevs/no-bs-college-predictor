@@ -1,51 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import PredictionTable from '../PredictionTable/PredictionTable'
 import { collegeData } from './general-2019.js';
 import './CollegePredictor.css';
 
 const CollegePredictor = () => {
-  const colleges = [
-    {
-        "institute": "Indian Institute  of Technology Bhubaneswar",
-        "program": "Civil Engineering (4 Years, Bachelor of Technology)",
-        "quota": "AI",
-        "category": "OBC-NCL",
-        "seat": "Gender-Neutral",
-        "openingRank": 2486,
-        "closingRank": 3095,
-        "type": "IIT",
-        "courseDuration": "4 Years",
-        "year": 2019
-    },
-    {
-        "institute": "Indian Institute  of Technology Bhubaneswar",
-        "program": "Civil Engineering (4 Years, Bachelor of Technology)",
-        "quota": "AI",
-        "category": "OBC-NCL",
-        "seat": "Female-Only",
-        "openingRank": 4337,
-        "closingRank": 6205,
-        "type": "IIT",
-        "courseDuration": "4 Years",
-        "year": 2019
-    },
-    {
-        "institute": "Indian Institute  of Technology Bhubaneswar",
-        "program": "Civil Engineering (4 Years, Bachelor of Technology)",
-        "quota": "AI",
-        "category": "GEN-EWS",
-        "seat": "Gender-Neutral",
-        "openingRank": 936,
-        "closingRank": 965,
-        "type": "IIT",
-        "courseDuration": "4 Years",
-        "year": 2019
-    },
-  ]
+  const [colleges, setColleges] = useState([]);
+
   const filterColleges = (e) => {
-    console.log(collegeData.length);
-    console.log(e.target.value);
+    const filteredColleges = collegeData.filter(
+      (college) => parseInt(e.target.value, 10) <= college.closingRank);
+    setColleges(filteredColleges);
   }
 
   return (
@@ -56,7 +21,7 @@ const CollegePredictor = () => {
         className="rank-input"
         onChange={filterColleges}
       />
-      <PredictionTable colleges={colleges}/>
+      {colleges.length > 0 && <PredictionTable colleges={colleges}/>}
     </div>
   );
 }
