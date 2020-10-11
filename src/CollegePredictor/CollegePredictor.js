@@ -9,7 +9,7 @@ function CollegePredictor () {
 
   const filterColleges = (e) => {
     const filteredColleges = collegeData.filter(
-      (college) => college.closingRank <=parseInt(e.target.value, 10));
+      (college) => parseInt(e.target.value, 10) <= college.closingRank);
     setColleges(filteredColleges);
   }
 
@@ -21,7 +21,7 @@ function CollegePredictor () {
         className="rank-input"
         onChange={filterColleges}
       />
-      <PredictionTable colleges={colleges}/>
+      {colleges.length > 0 && <PredictionTable colleges={colleges}/>}
     </div>
   );
 }

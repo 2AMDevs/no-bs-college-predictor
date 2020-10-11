@@ -4,6 +4,10 @@ table, th, td {
   padding: 5px;
 }
 
+th {
+  font-size: 16px;
+}
+
 td {
   font-size: 18px;
 }
