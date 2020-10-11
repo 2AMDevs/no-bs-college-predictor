@@ -1,3 +1,11 @@
+.filter-form {
+  text-align: center;
+}
+
+.filter-form > span {
+  margin-right: 1rem;
+}
+
 .rank-input {
   margin-bottom: 10px;
 }
