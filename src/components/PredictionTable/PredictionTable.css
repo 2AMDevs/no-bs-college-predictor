@@ -5,7 +5,9 @@ table, th, td {
 }
 
 th {
-  font-size: 1.1rem;
+  font-size: 18px;
+  background-color: var(--dark);
+  border: 2px solid var(--gray-dark);
 }
 
 td {
