@@ -9,8 +9,7 @@ const CollegePredictor = () => {
 
   const filterColleges = (e) => {
     const filteredColleges = collegeData.filter(
-      (college) => parseInt(e.target.value, 10) <= college.closingRank).sort(
-        (a, b) => a.openingRank - b.openingRank || a.closingRank - b.closingRank);
+      (college) => parseInt(e.target.value, 10) <= college.closingRank);
     setColleges(filteredColleges);
   }
 
