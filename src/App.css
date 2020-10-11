@@ -6,3 +6,10 @@ html {
   align-items: center;
   color: white;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}

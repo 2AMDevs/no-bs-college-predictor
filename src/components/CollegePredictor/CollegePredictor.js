@@ -34,7 +34,7 @@ const CollegePredictor = () => {
   }
 
   return (
-    <div className="college-predictor">
+    <>
       <div className="filter-form">
         JEE
         <select
@@ -66,7 +66,7 @@ const CollegePredictor = () => {
         filters={filters}
         setFilters={setFilters}
       />
-    </div>
+    </>
   );
 }
 

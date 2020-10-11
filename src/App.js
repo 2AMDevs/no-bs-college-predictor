@@ -3,7 +3,7 @@ import './App.css';
 import CollegePredictor from './components/CollegePredictor/CollegePredictor';
 
 const App = () => (
-  <div className="App">
+  <div className="app">
     <CollegePredictor />
   </div>
 );

@@ -1,5 +1,5 @@
 table, th, td {
-  border: 5px solid black;
+  border: 2px solid var(--dark);
   border-collapse: collapse;
   padding: 5px;
 }
@@ -9,6 +9,23 @@ th {
 }
 
 td {
-  font-size: 1rem;
+  font-size: 16px;
   text-align: left;
+}
+
+tr:hover {
+  background-color: var(--gray);
+}
+
+.college-table {
+  padding: 20px;
+  margin-top: 80px;
+}
+
+.width150 {
+  width: 150px;
+}
+
+.width100 {
+  width: 40px;
 }
