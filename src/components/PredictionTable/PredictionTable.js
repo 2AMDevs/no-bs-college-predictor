@@ -1,21 +1,36 @@
 import React from 'react';
 
 import './PredictionTable.css';
+import { columns } from '../../utils/constants';
+import TableFilter from '../TableFilter/TableFilter';
 
-const PredictionTable = ({ colleges }) => {
+const PredictionTable = ({
+  colleges,
+  filterColleges, filters,
+  setFilters
+}) => {
+  const updateFilters = (key, val) => {
+    const newFilters = {
+      ...filters,
+      [key]: val
+    };
+    filterColleges(newFilters);
+    setFilters(newFilters);
+  }
+
   return (
     <div className="college-table">
       <table>
         <thead>
           <tr>
-            <th>Institute name</th>
-            <th>Program</th>
-            <th>Quota</th>
-            <th>Category</th>
-            <th>Opening Rank</th>
-            <th>Closing Rank</th>
-            <th>Type</th>
-            <th>Course Duration</th>
+            {columns.map(col => (<TableFilter
+              title={col.title}
+              data={col.data}
+              property={col.property}
+              key={col.property}
+              value={filters[col.key]}
+              updateFilters={updateFilters}
+            />))}
           </tr>
         </thead>
         <tbody>
@@ -26,6 +41,7 @@ const PredictionTable = ({ colleges }) => {
                 <td title={college.program}>{college.program}</td>
                 <td title={college.quota}>{college.quota}</td>
                 <td title={college.category}>{college.category}</td>
+                <td title={college.seat}>{college.seat}</td>
                 <td title={college.openingRank}>{college.openingRank}</td>
                 <td title={college.closingRank}>{college.closingRank}</td>
                 <td title={college.type}>{college.type}</td>
