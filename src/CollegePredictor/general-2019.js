@@ -1,4 +1,4 @@
-[
+export const collegeData = [
 
         {
             "institute": "Indian Institute  of Technology Bhubaneswar",

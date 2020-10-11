@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CollegePredictor from './CollegePredictor/CollegePredictor'
+import CollegePredictor from './CollegePredictor/CollegePredictor';
 
 import './App.css';
 
