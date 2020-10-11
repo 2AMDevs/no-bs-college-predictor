@@ -1,0 +1,9 @@
+.table-filter {
+  margin: 5px;
+  padding: 4px 2px 0 2px;
+  background-color: var(--dark);
+  color: var(--yellow);
+  border: 2px solid var(--yellow);
+  font-size: 14px;
+  border-radius: 2px;
+}
