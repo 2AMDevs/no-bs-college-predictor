@@ -1,17 +1,11 @@
 import React from 'react';
-
-import CollegePredictor from './CollegePredictor/CollegePredictor';
-
 import './App.css';
+import CollegePredictor from './components/CollegePredictor/CollegePredictor';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <CollegePredictor />
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+      <CollegePredictor />
+  </div>
+);
 
 export default App;
