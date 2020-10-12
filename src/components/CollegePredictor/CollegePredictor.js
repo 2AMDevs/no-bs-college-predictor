@@ -50,10 +50,7 @@ const CollegePredictor = () => {
         JEE
         <select
           value={exam}
-          onChange={(e) => {
-            setExam(e.target.value)
-            filterColleges()
-          }}
+          onChange={(e) => setExam(e.target.value)}
           className="exam-type-select"
         >
           <option
