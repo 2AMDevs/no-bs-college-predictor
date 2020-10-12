@@ -34,9 +34,8 @@ const PredictionTable = ({
           </tr>
         </thead>
         <tbody>
-          {colleges?.length ? (colleges).map((college, index) => console.log(college) || (
-            // eslint-disable-next-line react/no-array-index-key
-            <tr key={`${index}-college.institute`}>
+          {colleges?.length ? (colleges).map((college, index) => (
+            <tr key={`${index}-${college.institute}`}>
               <td
                 className="width150"
                 title={college.institute}
