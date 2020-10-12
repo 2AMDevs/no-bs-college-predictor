@@ -5,14 +5,44 @@ input {
 
 .filter-form {
   background-color: var(--gray);
-  text-align: center;
-  padding: 20px 60px;
+  padding: 20px 0 0;
   margin-top: 10px;
   border-radius: 5px;
   font-size: 24px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   box-shadow: 0 0 10px var(--dark);
+}
+
+.filter-form__inputs {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.dev-links {
+  justify-content: center;
+  display: flex;
+  align-self: center;
+  width: 100%;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 4px 0;
+  opacity: 0.8;
+  background-color: var(--dark);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.dev-link {
+  text-decoration: none;
+  color: var(--yellow);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dev-link:hover {
+  opacity: 0.6;
 }
 
 .exam-type-select, .rank-input {
@@ -42,19 +72,4 @@ input {
   background-color: var(--yellow);
   border: 2px solid var(--dark);
   color: var(--dark);
-}
-
-@media only screen and (max-width: 940px) {
-  .filter-form {
-    font-size: 16px;
-  }
-
-  .submit-btn {
-    padding: 4px 8px 0;
-    font-size: 10px;
-  }
-  .exam-type-select, .rank-input {
-    font-size: 16px;
-    width: 100px;
-  }
 }

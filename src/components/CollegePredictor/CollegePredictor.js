@@ -47,40 +47,54 @@ const CollegePredictor = () => {
   return (
     <>
       <div className="filter-form">
-        JEE
-        <select
-          value={exam}
-          onChange={(e) => setExam(e.target.value)}
-          className="exam-type-select"
-        >
-          <option
-            key="mains"
-            value="Mains"
+        <div className="filter-form__inputs">
+          JEE
+          <select
+            value={exam}
+            onChange={(e) => setExam(e.target.value)}
+            className="exam-type-select"
           >
-            Mains
-          </option>
-          <option
-            key="adv"
-            value="Advanced"
+            <option
+              key="mains"
+              value="Mains"
+            >
+              Mains
+            </option>
+            <option
+              key="adv"
+              value="Advanced"
+            >
+              Advanced
+            </option>
+          </select>
+          Rank
+          <input
+            type="number"
+            className="rank-input"
+            placeholder="Enter your rank here"
+            value={rank}
+            onChange={(e) => setRank(parseInt(e.target.value, 10))}
+          />
+          <button
+            type="button"
+            onClick={(_e) => filterColleges()}
+            className="submit-btn"
           >
-            Advanced
-          </option>
-        </select>
-        Rank
-        <input
-          type="number"
-          className="rank-input"
-          placeholder="Enter your rank here"
-          value={rank}
-          onChange={(e) => setRank(parseInt(e.target.value, 10))}
-        />
-        <button
-          type="button"
-          onClick={(_e) => filterColleges()}
-          className="submit-btn"
-        >
-          Get Predictions
-        </button>
+            Get Predictions
+          </button>
+        </div>
+        <div className="dev-links">
+          Made in Rajasthan by
+          &nbsp;
+          <a
+            className="dev-link"
+            target="_blank"
+            without rel="noopener noreferrer"
+            href="https://github.com/2AMDevs/no-bs-college-predictor/"
+          >
+            2AM Devs
+          </a>
+        </div>
       </div>
       <PredictionTable
         colleges={colleges}
