@@ -1,20 +1,28 @@
-import React from 'react';
+import React from 'react'
 
-const TableFilter = ({ title, property, value, data, updateFilters }) => {
-  return (
-    <th>{title}
-      { data?.length && <select
+const TableFilter = ({
+  title, property, value, data, updateFilters,
+}) => (
+  <th>
+    {title}
+    { data?.length && (
+      <select
         id={property}
         name={title}
         value={value}
         onChange={(e) => updateFilters(property, e.target.value)}
       >
-        {data.map(d => (
-          <option key={d} value={d}>{d}</option>
+        {data.map((d) => (
+          <option
+            key={d}
+            value={d}
+          >
+            {d}
+          </option>
         ))}
-      </select> }
+      </select>
+    ) }
   </th>
-  )
-}
+)
 
-export default TableFilter;
+export default TableFilter
