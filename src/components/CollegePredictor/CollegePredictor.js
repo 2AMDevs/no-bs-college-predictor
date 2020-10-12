@@ -7,7 +7,7 @@ import './CollegePredictor.css'
 
 const CollegePredictor = () => {
   const [colleges, setColleges] = useState([])
-  const [rank, setRank] = useState()
+  const [rank, setRank] = useState(1337)
   const [exam, setExam] = useState('Advanced')
   const [filters, setFilters] = useState({ category: 'OPEN' })
 
