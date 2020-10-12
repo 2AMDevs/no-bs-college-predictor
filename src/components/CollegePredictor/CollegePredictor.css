@@ -43,3 +43,18 @@ input {
   border: 2px solid var(--dark);
   color: var(--dark);
 }
+
+@media only screen and (max-width: 940px) {
+  .filter-form {
+    font-size: 16px;
+  }
+
+  .submit-btn {
+    padding: 4px 8px 0;
+    font-size: 10px;
+  }
+  .exam-type-select, .rank-input {
+    font-size: 16px;
+    width: 100px;
+  }
+}
