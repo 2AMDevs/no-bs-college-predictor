@@ -5,8 +5,7 @@ import { columns } from '../../utils/constants'
 import TableFilter from '../TableFilter/TableFilter'
 
 const PredictionTable = ({
-  colleges,
-  filterColleges, filters,
+  colleges, filters,
   setFilters,
 }) => {
   const updateFilters = (key, val) => {
@@ -14,7 +13,6 @@ const PredictionTable = ({
       ...filters,
       [key]: val,
     }
-    filterColleges(newFilters)
     setFilters(newFilters)
   }
 
@@ -36,7 +34,7 @@ const PredictionTable = ({
           </tr>
         </thead>
         <tbody>
-          {(colleges || []).map((college, index) => (
+          {colleges?.length ? (colleges || []).map((college, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <tr key={`${index}-college.institute`}>
               <td
@@ -94,7 +92,16 @@ const PredictionTable = ({
                 {college.courseDuration}
               </td>
             </tr>
-          ))}
+          )) : (
+            <tr>
+              <td
+                className="none-found"
+                colSpan={columns.length}
+              >
+                No Colleges found as per filters applied.
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
