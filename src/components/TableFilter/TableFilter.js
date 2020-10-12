@@ -1,16 +1,19 @@
 import React from 'react'
 
+import './TableFilter.css'
+
 const TableFilter = ({
   title, property, value, data, updateFilters,
 }) => (
   <th>
     {title}
-    { data?.length && (
+    {data?.length && (
       <select
         id={property}
         name={title}
         value={value}
         onChange={(e) => updateFilters(property, e.target.value)}
+        className="table-filter"
       >
         {data.map((d) => (
           <option
@@ -21,7 +24,7 @@ const TableFilter = ({
           </option>
         ))}
       </select>
-    ) }
+    )}
   </th>
 )
 

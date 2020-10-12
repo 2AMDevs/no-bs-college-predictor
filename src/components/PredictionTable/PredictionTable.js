@@ -39,15 +39,60 @@ const PredictionTable = ({
           {(colleges || []).map((college, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <tr key={`${index}-college.institute`}>
-              <td title={college.institute}>{college.institute}</td>
-              <td title={college.program}>{college.program}</td>
-              <td title={college.quota}>{college.quota}</td>
-              <td title={college.category}>{college.category}</td>
-              <td title={college.seat}>{college.seat}</td>
-              <td title={college.openingRank}>{college.openingRank}</td>
-              <td title={college.closingRank}>{college.closingRank}</td>
-              <td title={college.type}>{college.type}</td>
-              <td title={college.courseDuration}>{college.courseDuration}</td>
+              <td
+                className="width150"
+                title={college.institute}
+              >
+                {college.institute}
+              </td>
+              <td
+                className="width150"
+                title={college.program}
+              >
+                {college.program}
+              </td>
+              <td
+                className="width100"
+                title={college.quota}
+              >
+                {college.quota}
+              </td>
+              <td
+                className="width100"
+                title={college.category}
+              >
+                {college.category}
+              </td>
+              <td
+                className="width100"
+                title={college.seat}
+              >
+                {college.seat}
+              </td>
+              <td
+                className="width100"
+                title={college.openingRank}
+              >
+                {college.openingRank}
+              </td>
+              <td
+                className="width100"
+                title={college.closingRank}
+              >
+                {college.closingRank}
+              </td>
+              <td
+                className="width100"
+                title={college.type}
+              >
+                {college.type}
+              </td>
+              <td
+                className="width100"
+                title={college.courseDuration}
+              >
+                {college.courseDuration}
+              </td>
             </tr>
           ))}
         </tbody>

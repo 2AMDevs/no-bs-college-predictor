@@ -37,39 +37,39 @@ const CollegePredictor = () => {
   }
 
   return (
-    <div className="college-predictor">
+    <>
       <div className="filter-form">
-        <span>
-          JEE &nbsp;
-          <select
-            value={exam}
-            onChange={(e) => setExam(e.target.value)}
+        JEE
+        <select
+          value={exam}
+          onChange={(e) => setExam(e.target.value)}
+          className="exam-type-select"
+        >
+          <option
+            key="mains"
+            value="Mains"
           >
-            <option
-              key="mains"
-              value="Mains"
-            >
-              Mains
-            </option>
-            <option
-              key="adv"
-              value="Advanced"
-            >
-              Advanced
-            </option>
-          </select>
-          {' '}
-          Rank
-        </span>
+            Mains
+          </option>
+          <option
+            key="adv"
+            value="Advanced"
+          >
+            Advanced
+          </option>
+        </select>
+        Rank
         <input
           type="number"
           className="rank-input"
+          placeholder="Enter your rank here"
           value={rank}
           onChange={(e) => setRank(parseInt(e.target.value, 10))}
         />
         <button
           type="button"
-          onClick={(_) => filterColleges()}
+          onClick={(_e) => filterColleges()}
+          className="submit-btn"
         >
           Get Predictions
         </button>
@@ -80,7 +80,7 @@ const CollegePredictor = () => {
         filters={filters}
         setFilters={setFilters}
       />
-    </div>
+    </>
   )
 }
 
