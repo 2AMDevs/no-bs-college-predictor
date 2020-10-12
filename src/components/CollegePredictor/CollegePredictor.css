@@ -7,13 +7,12 @@ input {
   background-color: var(--gray);
   text-align: center;
   padding: 20px 60px;
+  margin-top: 10px;
   border-radius: 5px;
   font-size: 24px;
   display: flex;
   justify-content: center;
   box-shadow: 0 0 10px var(--dark);
-  position: absolute;
-  top: 10px;
 }
 
 .exam-type-select, .rank-input {

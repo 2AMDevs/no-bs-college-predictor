@@ -36,58 +36,31 @@ const PredictionTable = ({
         <tbody>
           {colleges?.length ? (colleges).map((college, index) => (
             <tr key={`${index}-${college.institute}`}>
-              <td
-                className="width150"
-                title={college.institute}
-              >
+              <td title={college.institute}>
                 {college.institute}
               </td>
-              <td
-                className="width150"
-                title={college.program}
-              >
+              <td title={college.program}>
                 {college.program}
               </td>
-              <td
-                className="width100"
-                title={college.quota}
-              >
+              <td title={college.quota}>
                 {college.quota}
               </td>
-              <td
-                className="width100"
-                title={college.category}
-              >
+              <td title={college.category}>
                 {college.category}
               </td>
-              <td
-                className="width100"
-                title={college.seat}
-              >
+              <td title={college.seat}>
                 {college.seat}
               </td>
-              <td
-                className="width100"
-                title={college.openingRank}
-              >
+              <td title={college.openingRank}>
                 {college.openingRank}
               </td>
-              <td
-                className="width100"
-                title={college.closingRank}
-              >
+              <td title={college.closingRank}>
                 {college.closingRank}
               </td>
-              <td
-                className="width100"
-                title={college.type}
-              >
+              <td title={college.type}>
                 {college.type}
               </td>
-              <td
-                className="width100"
-                title={college.courseDuration}
-              >
+              <td title={college.courseDuration}>
                 {college.courseDuration}
               </td>
             </tr>

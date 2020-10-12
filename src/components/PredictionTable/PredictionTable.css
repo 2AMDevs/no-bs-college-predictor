@@ -5,6 +5,10 @@ table, th, td {
   padding: 5px;
 }
 
+th, td {
+  max-width: 150px;
+}
+
 th {
   font-size: 18px;
   background-color: var(--dark);
@@ -21,18 +25,23 @@ tr:hover {
 }
 
 .college-table {
-  padding: 20px;
-  margin-top: 80px;
-}
-
-.width150 {
-  width: 150px;
-}
-
-.width100 {
-  width: 40px;
+  margin-top: 20px;
 }
 
 .none-found {
   text-align: center;
+}
+
+@media only screen and (max-width: 940px) {
+  th {
+    font-size: 12px;
+  }
+
+  td {
+    font-size: 10px;
+  }
+
+  th, td {
+    width: 50px;
+  }
 }
