@@ -1,6 +1,7 @@
 table, th, td {
   border: 2px solid var(--dark);
   border-collapse: collapse;
+  margin-top: 1rem;
   padding: 5px;
 }
 
@@ -30,4 +31,8 @@ tr:hover {
 
 .width100 {
   width: 40px;
+}
+
+.none-found {
+  text-align: center;
 }

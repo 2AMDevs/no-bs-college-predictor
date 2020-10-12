@@ -1,37 +1,48 @@
-import React, { useState } from 'react';
+/* eslint-disable no-bitwise */
+import React, { useState, useEffect } from 'react'
 
-import PredictionTable from '../PredictionTable/PredictionTable';
-import './CollegePredictor.css';
-import { getByCategory } from '../../utils/getData';
+import { getByCategory } from '../../utils/getData'
+import PredictionTable from '../PredictionTable/PredictionTable'
+import './CollegePredictor.css'
 
 const CollegePredictor = () => {
-  const [colleges, setColleges] = useState([]);
-  const [rank, setRank] = useState();
-  const [exam, setExam] = useState("Advanced");
-  const [filters, setFilters] = useState({ category: "OPEN" })
+  const [colleges, setColleges] = useState([])
+  const [rank, setRank] = useState(1337)
+  const [exam, setExam] = useState('Advanced')
+  const [filters, setFilters] = useState({ category: 'OPEN' })
 
-  const filterColleges = (currentFilters=filters) => {
-    const filteredColleges = getByCategory(currentFilters.category)
-                              .filter((c) => filterData(c, currentFilters));
-    setColleges(filteredColleges);
-  }
-
-  const filterData = (college, filters) => {
-    let finalVal = rank <= college.closingRank;
+  const filterData = (college) => {
+    let finalVal = rank <= college.closingRank
     // This filter is hardcoded for IIT and Non-IIT
-    filters['type'] = exam === "Advanced" ? "IIT" : ['IIT'];
-    Object.keys(filters)
-      .forEach(filter => {
-        if (filters[filter] !== "All") { // All means skip filter
-          if (filters[filter] instanceof Array) {
-            finalVal = finalVal & (!filters[filter].includes(college[filter]));
+    // eslint-disable-next-line no-param-reassign
+    const dataFilters = {
+      ...filters,
+      type: exam === 'Advanced' ? 'IIT' : ['IIT'],
+    }
+
+    Object.keys(dataFilters)
+      .forEach((filter) => {
+        // All means skip filter
+        if (dataFilters[filter] !== 'All') {
+          if (dataFilters[filter] instanceof Array) {
+            finalVal &= (!dataFilters[filter].includes(college[filter]))
           } else {
-            finalVal = finalVal & (college[filter] === filters[filter]);
+            finalVal &= (college[filter] === dataFilters[filter])
           }
         }
-      });
-    return finalVal;
+      })
+    return finalVal
   }
+
+  const filterColleges = () => {
+    const filteredColleges = getByCategory(filters.category)
+      .filter(filterData)
+    setColleges(filteredColleges)
+  }
+
+  useEffect(() => {
+    filterColleges()
+  }, [exam, filters])
 
   return (
     <>
@@ -42,8 +53,18 @@ const CollegePredictor = () => {
           onChange={(e) => setExam(e.target.value)}
           className="exam-type-select"
         >
-          <option key="mains" value="Mains">Mains</option>
-          <option key="adv" value="Advanced">Advanced</option>
+          <option
+            key="mains"
+            value="Mains"
+          >
+            Mains
+          </option>
+          <option
+            key="adv"
+            value="Advanced"
+          >
+            Advanced
+          </option>
         </select>
         Rank
         <input
@@ -54,6 +75,7 @@ const CollegePredictor = () => {
           onChange={(e) => setRank(parseInt(e.target.value, 10))}
         />
         <button
+          type="button"
           onClick={(_e) => filterColleges()}
           className="submit-btn"
         >
@@ -62,12 +84,11 @@ const CollegePredictor = () => {
       </div>
       <PredictionTable
         colleges={colleges}
-        filterColleges={filterColleges}
         filters={filters}
         setFilters={setFilters}
       />
     </>
-  );
+  )
 }
 
-export default CollegePredictor;
+export default CollegePredictor

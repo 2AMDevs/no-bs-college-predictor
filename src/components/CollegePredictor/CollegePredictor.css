@@ -1,3 +1,8 @@
+input {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .filter-form {
   background-color: var(--gray);
   text-align: center;
@@ -8,11 +13,6 @@
   justify-content: center;
   box-shadow: 0 0 10px var(--dark);
   position: absolute;
-  top: -10px;
-  transition: all 0.3s ease-in-out;
-}
-
-.filter-form:hover {
   top: 10px;
 }
 

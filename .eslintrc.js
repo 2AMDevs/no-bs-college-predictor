@@ -60,6 +60,7 @@ module.exports = {
       "react/jsx-indent": [2, 2],
       "react/jsx-indent-props": [2, 2],
       "arrow-parens": [2, "always"],
+      "no-unused-vars": [2, {"args": "all", "argsIgnorePattern": "^_"}],
       "no-multi-spaces": ["error", { exceptions: { "BinaryExpression": true }, "ignoreEOLComments": true }],
       "react/jsx-max-props-per-line": [1, { "when": "always" }],
       "react/jsx-props-no-spreading": [0],
