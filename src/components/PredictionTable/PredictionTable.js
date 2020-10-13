@@ -3,6 +3,7 @@ import React from 'react'
 import './PredictionTable.css'
 import { columns } from '../../utils/constants'
 import TableFilter from '../TableFilter/TableFilter'
+import Loading from '../../loading.svg'
 
 const PredictionTable = ({
   colleges, filters,
@@ -42,6 +43,11 @@ const PredictionTable = ({
             ))}
           </tr>
         </thead>
+        <img
+          className="loading"
+          src={Loading}
+          alt="Loading"
+        />
         <tbody>
           {colleges?.length ? (colleges).map((college, index) => (
             <tr key={`${index}-${college.institute}`}>
