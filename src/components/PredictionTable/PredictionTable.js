@@ -48,7 +48,7 @@ const PredictionTable = ({
                 data={col.data}
                 property={col.property}
                 key={col.property}
-                value={filters[col.key]}
+                value={filters[col.property]}
                 updateFilters={updateFilters}
               />
             ))}
