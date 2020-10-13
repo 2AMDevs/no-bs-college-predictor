@@ -7,7 +7,8 @@ import './CollegePredictor.css'
 
 const CollegePredictor = () => {
   const [colleges, setColleges] = useState([])
-  const [rank, setRank] = useState(1337)
+  const [rank, setRank] = useState()
+  const [isLoading, setLoading] = useState(false)
   const [exam, setExam] = useState('Advanced')
   const [filters, setFilters] = useState({ category: 'OPEN' })
 
@@ -34,10 +35,23 @@ const CollegePredictor = () => {
     return finalVal
   }
 
-  const filterColleges = () => {
+  const getFilteredColleges = () => new Promise(function(resolve, reject) {
     const filteredColleges = getByCategory(filters.category)
       .filter(filterData)
-    setColleges(filteredColleges)
+
+    // using this to prevent 1 second lag, loading is better than lag
+    setTimeout(() => {
+      resolve(filteredColleges)
+    }, 1000)
+  })
+
+  const filterColleges = () => {
+    setLoading(true)
+    getFilteredColleges().then((filteredColleges) => {
+      console.log(isLoading)
+      setColleges(filteredColleges)
+      setLoading(false)
+    })
   }
 
   useEffect(() => {
@@ -47,45 +61,60 @@ const CollegePredictor = () => {
   return (
     <>
       <div className="filter-form">
-        JEE
-        <select
-          value={exam}
-          onChange={(e) => setExam(e.target.value)}
-          className="exam-type-select"
-        >
-          <option
-            key="mains"
-            value="Mains"
+        <div className="filter-form__inputs">
+          JEE
+          <select
+            value={exam}
+            onChange={(e) => setExam(e.target.value)}
+            className="exam-type-select"
           >
-            Mains
-          </option>
-          <option
-            key="adv"
-            value="Advanced"
+            <option
+              key="mains"
+              value="Mains"
+            >
+              Mains
+            </option>
+            <option
+              key="adv"
+              value="Advanced"
+            >
+              Advanced
+            </option>
+          </select>
+          Rank
+          <input
+            type="number"
+            className="rank-input"
+            placeholder="Enter your rank here"
+            value={rank}
+            onChange={(e) => setRank(parseInt(e.target.value, 10))}
+          />
+          <button
+            type="button"
+            onClick={(_e) => filterColleges()}
+            className="submit-btn"
           >
-            Advanced
-          </option>
-        </select>
-        Rank
-        <input
-          type="number"
-          className="rank-input"
-          placeholder="Enter your rank here"
-          value={rank}
-          onChange={(e) => setRank(parseInt(e.target.value, 10))}
-        />
-        <button
-          type="button"
-          onClick={(_e) => filterColleges()}
-          className="submit-btn"
-        >
-          Get Predictions
-        </button>
+            Get Predictions
+          </button>
+        </div>
+        <div className="dev-links">
+          Made in Rajasthan by
+          &nbsp;
+          <a
+            className="dev-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/2AMDevs/no-bs-college-predictor/"
+          >
+            2AM Devs
+          </a>
+        </div>
       </div>
       <PredictionTable
         colleges={colleges}
         filters={filters}
         setFilters={setFilters}
+        isLoading={isLoading}
       />
     </>
   )

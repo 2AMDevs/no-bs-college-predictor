@@ -1,19 +1,49 @@
 input {
-  text-align: center;
+  padding-top: 0.1rem;
+  padding-left: 1rem;
   vertical-align: middle;
 }
 
 .filter-form {
   background-color: var(--gray);
-  text-align: center;
-  padding: 20px 60px;
+  padding: 20px 0 0;
+  margin-top: 10px;
   border-radius: 5px;
   font-size: 24px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   box-shadow: 0 0 10px var(--dark);
-  position: absolute;
-  top: 10px;
+}
+
+.filter-form__inputs {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.dev-links {
+  justify-content: center;
+  display: flex;
+  align-self: center;
+  width: 100%;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 4px 0;
+  opacity: 0.8;
+  background-color: var(--dark);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.dev-link {
+  text-decoration: none;
+  color: var(--yellow);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dev-link:hover {
+  opacity: 0.6;
 }
 
 .exam-type-select, .rank-input {
@@ -43,4 +73,17 @@ input {
   background-color: var(--yellow);
   border: 2px solid var(--dark);
   color: var(--dark);
+}
+
+/* Remove Arrows from input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

@@ -3,10 +3,11 @@ import React from 'react'
 import './PredictionTable.css'
 import { columns } from '../../utils/constants'
 import TableFilter from '../TableFilter/TableFilter'
+import Loading from '../../loading.svg'
 
 const PredictionTable = ({
   colleges, filters,
-  setFilters,
+  setFilters, isLoading = true
 }) => {
   const updateFilters = (key, val) => {
     const newFilters = {
@@ -16,9 +17,29 @@ const PredictionTable = ({
     setFilters(newFilters)
   }
 
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <img
+          src={Loading}
+          alt="Loading"
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="college-table">
       <table>
+        <colgroup>
+          {columns.map((col) => (
+            <col
+              span="1"
+              key={`col-span-${col.title}`}
+              style={col.style}
+            />
+          ))}
+        </colgroup>
         <thead>
           <tr>
             {columns.map((col) => (
@@ -27,7 +48,7 @@ const PredictionTable = ({
                 data={col.data}
                 property={col.property}
                 key={col.property}
-                value={filters[col.key]}
+                value={filters[col.property]}
                 updateFilters={updateFilters}
               />
             ))}
@@ -36,58 +57,31 @@ const PredictionTable = ({
         <tbody>
           {colleges?.length ? (colleges).map((college, index) => (
             <tr key={`${index}-${college.institute}`}>
-              <td
-                className="width150"
-                title={college.institute}
-              >
+              <td title={college.institute}>
                 {college.institute}
               </td>
-              <td
-                className="width150"
-                title={college.program}
-              >
+              <td title={college.program}>
                 {college.program}
               </td>
-              <td
-                className="width100"
-                title={college.quota}
-              >
+              <td title={college.quota}>
                 {college.quota}
               </td>
-              <td
-                className="width100"
-                title={college.category}
-              >
+              <td title={college.category}>
                 {college.category}
               </td>
-              <td
-                className="width100"
-                title={college.seat}
-              >
+              <td title={college.seat}>
                 {college.seat}
               </td>
-              <td
-                className="width100"
-                title={college.openingRank}
-              >
+              <td title={college.openingRank}>
                 {college.openingRank}
               </td>
-              <td
-                className="width100"
-                title={college.closingRank}
-              >
+              <td title={college.closingRank}>
                 {college.closingRank}
               </td>
-              <td
-                className="width100"
-                title={college.type}
-              >
+              <td title={college.type}>
                 {college.type}
               </td>
-              <td
-                className="width100"
-                title={college.courseDuration}
-              >
+              <td title={college.courseDuration}>
                 {college.courseDuration}
               </td>
             </tr>

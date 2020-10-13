@@ -32,42 +32,51 @@ const columns = [
   {
     title: 'Institute name',
     property: 'institute',
+    style: { width: '30%' },
   },
   {
     title: 'Program',
     property: 'program',
+    style: { width: '65%' },
   },
   {
     title: 'Quota',
     property: 'quota',
     data: quotas,
+    style: { width: '5%' },
   },
   {
     title: 'Categories',
     property: 'category',
     data: categories,
+    style: { width: '5%' },
   },
   {
     title: 'Seat Type',
     property: 'seat',
     data: seatTypes,
+    style: { width: '5%' },
   },
   {
     title: 'Opening Rank',
     property: 'openingRank',
+    style: { width: '5%' },
   },
   {
     title: 'Closing Rank',
     property: 'closingRank',
+    style: { width: '5%' },
   },
   {
     title: 'College Type',
     property: 'type',
+    style: { width: '5%' },
   },
   {
     title: 'Course Duration',
     property: 'courseDuration',
     data: courseDuration,
+    style: { width: '5%' },
   },
 ]
 
