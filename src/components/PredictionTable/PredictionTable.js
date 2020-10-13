@@ -1,13 +1,14 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 
 import './PredictionTable.css'
+import Loading from '../../loading.svg'
 import { columns } from '../../utils/constants'
 import TableFilter from '../TableFilter/TableFilter'
-import Loading from '../../loading.svg'
 
 const PredictionTable = ({
   colleges, filters,
-  setFilters, isLoading = true
+  setFilters, isLoading = true,
 }) => {
   const updateFilters = (key, val) => {
     const newFilters = {

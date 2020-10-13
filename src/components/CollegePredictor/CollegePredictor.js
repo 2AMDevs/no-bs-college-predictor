@@ -35,7 +35,7 @@ const CollegePredictor = () => {
     return finalVal
   }
 
-  const getFilteredColleges = () => new Promise(function(resolve, reject) {
+  const getFilteredColleges = () => new Promise(((resolve, _reject) => {
     const filteredColleges = getByCategory(filters.category)
       .filter(filterData)
 
@@ -43,12 +43,11 @@ const CollegePredictor = () => {
     setTimeout(() => {
       resolve(filteredColleges)
     }, 1000)
-  })
+  }))
 
   const filterColleges = () => {
     setLoading(true)
     getFilteredColleges().then((filteredColleges) => {
-      console.log(isLoading)
       setColleges(filteredColleges)
       setLoading(false)
     })
