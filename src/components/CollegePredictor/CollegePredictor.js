@@ -8,6 +8,7 @@ import './CollegePredictor.css'
 const CollegePredictor = () => {
   const [colleges, setColleges] = useState([])
   const [rank, setRank] = useState()
+  const [isLoading, setLoading] = useState(false)
   const [exam, setExam] = useState('Advanced')
   const [filters, setFilters] = useState({ category: 'OPEN' })
 
@@ -34,10 +35,23 @@ const CollegePredictor = () => {
     return finalVal
   }
 
-  const filterColleges = () => {
+  const getFilteredColleges = () => new Promise(function(resolve, reject) {
     const filteredColleges = getByCategory(filters.category)
       .filter(filterData)
-    setColleges(filteredColleges)
+
+    // using this to prevent 1 second lag, loading is better than lag
+    setTimeout(() => {
+      resolve(filteredColleges)
+    }, 1000)
+  })
+
+  const filterColleges = () => {
+    setLoading(true)
+    getFilteredColleges().then((filteredColleges) => {
+      console.log(isLoading)
+      setColleges(filteredColleges)
+      setLoading(false)
+    })
   }
 
   useEffect(() => {
@@ -100,6 +114,7 @@ const CollegePredictor = () => {
         colleges={colleges}
         filters={filters}
         setFilters={setFilters}
+        isLoading={isLoading}
       />
     </>
   )

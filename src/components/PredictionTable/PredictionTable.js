@@ -7,7 +7,7 @@ import Loading from '../../loading.svg'
 
 const PredictionTable = ({
   colleges, filters,
-  setFilters,
+  setFilters, isLoading = true
 }) => {
   const updateFilters = (key, val) => {
     const newFilters = {
@@ -15,6 +15,17 @@ const PredictionTable = ({
       [key]: val,
     }
     setFilters(newFilters)
+  }
+
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <img
+          src={Loading}
+          alt="Loading"
+        />
+      </div>
+    )
   }
 
   return (
@@ -43,11 +54,6 @@ const PredictionTable = ({
             ))}
           </tr>
         </thead>
-        <img
-          className="loading"
-          src={Loading}
-          alt="Loading"
-        />
         <tbody>
           {colleges?.length ? (colleges).map((college, index) => (
             <tr key={`${index}-${college.institute}`}>
