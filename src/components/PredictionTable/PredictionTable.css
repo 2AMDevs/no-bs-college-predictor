@@ -36,17 +36,3 @@ tr:hover {
 .none-found {
   text-align: center;
 }
-
-@media only screen and (max-width: 940px) {
-  th {
-    font-size: 1rem;
-  }
-
-  td {
-    font-size: 0.83rem;
-  }
-
-  th, td {
-    width: 50px;
-  }
-}
