@@ -2,7 +2,12 @@ table, th, td {
   border: 2px solid var(--dark);
   border-collapse: collapse;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 5px;
+}
+
+th > select {
+  width: 4.5rem;
 }
 
 th, td {
@@ -34,11 +39,11 @@ tr:hover {
 
 @media only screen and (max-width: 940px) {
   th {
-    font-size: 12px;
+    font-size: 1rem;
   }
 
   td {
-    font-size: 10px;
+    font-size: 0.83rem;
   }
 
   th, td {

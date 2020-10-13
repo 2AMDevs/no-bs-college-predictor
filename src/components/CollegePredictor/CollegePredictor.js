@@ -7,7 +7,7 @@ import './CollegePredictor.css'
 
 const CollegePredictor = () => {
   const [colleges, setColleges] = useState([])
-  const [rank, setRank] = useState(1337)
+  const [rank, setRank] = useState()
   const [exam, setExam] = useState('Advanced')
   const [filters, setFilters] = useState({ category: 'OPEN' })
 
@@ -48,26 +48,28 @@ const CollegePredictor = () => {
     <>
       <div className="filter-form">
         <div className="filter-form__inputs">
-          JEE
-          <select
-            value={exam}
-            onChange={(e) => setExam(e.target.value)}
-            className="exam-type-select"
-          >
-            <option
-              key="mains"
-              value="Mains"
+          <div>
+            JEE
+            <select
+              value={exam}
+              onChange={(e) => setExam(e.target.value)}
+              className="exam-type-select"
             >
-              Mains
-            </option>
-            <option
-              key="adv"
-              value="Advanced"
-            >
-              Advanced
-            </option>
-          </select>
-          Rank
+              <option
+                key="mains"
+                value="Mains"
+              >
+                Mains
+              </option>
+              <option
+                key="adv"
+                value="Advanced"
+              >
+                Advanced
+              </option>
+            </select>
+            Rank
+          </div>
           <input
             type="number"
             className="rank-input"
@@ -89,7 +91,7 @@ const CollegePredictor = () => {
           <a
             className="dev-link"
             target="_blank"
-            without rel="noopener noreferrer"
+            rel="noopener noreferrer"
             href="https://github.com/2AMDevs/no-bs-college-predictor/"
           >
             2AM Devs

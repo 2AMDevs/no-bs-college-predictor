@@ -19,6 +19,15 @@ const PredictionTable = ({
   return (
     <div className="college-table">
       <table>
+        <colgroup>
+          {columns.map((col) => (
+            <col
+              span="1"
+              key={`col-span-${col.title}`}
+              style={col.style}
+            />
+          ))}
+        </colgroup>
         <thead>
           <tr>
             {columns.map((col) => (
