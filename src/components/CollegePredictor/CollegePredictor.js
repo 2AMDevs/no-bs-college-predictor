@@ -48,28 +48,26 @@ const CollegePredictor = () => {
     <>
       <div className="filter-form">
         <div className="filter-form__inputs">
-          <div>
-            JEE
-            <select
-              value={exam}
-              onChange={(e) => setExam(e.target.value)}
-              className="exam-type-select"
+          JEE
+          <select
+            value={exam}
+            onChange={(e) => setExam(e.target.value)}
+            className="exam-type-select"
+          >
+            <option
+              key="mains"
+              value="Mains"
             >
-              <option
-                key="mains"
-                value="Mains"
-              >
-                Mains
-              </option>
-              <option
-                key="adv"
-                value="Advanced"
-              >
-                Advanced
-              </option>
-            </select>
-            Rank
-          </div>
+              Mains
+            </option>
+            <option
+              key="adv"
+              value="Advanced"
+            >
+              Advanced
+            </option>
+          </select>
+          Rank
           <input
             type="number"
             className="rank-input"
